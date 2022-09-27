@@ -1,0 +1,7 @@
+select msg.created_datetime,msg.message_name, mbx.path
+from mbx_message msg inner join mbx_mailbox mbx on
+mbx.MAILBOX_ID = msg.MAILBOX_ID
+where mbx.path like '%/DOUGLAS%'
+and msg.CREATED_DATETIME between to_date('2022-09-01 00:00:00','YYYY-MM-DD HH24:MI:SS')
+and to_date('2022-09-30 23:59:59','YYYY-MM-DD HH24:MI:SS')
+order by msg.created_datetime
